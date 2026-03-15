@@ -16,14 +16,14 @@ Route::middleware('auth:api-passport')->group(function () {
 
     Route::get('/users-read-test', function (Request $request) {
         return response()->json([
-            'message' => 'El token con el alcance users:read es valido',
+            'message' => 'Token valido => users:read es valido',
             'user' => $request->user(),
         ]);
     })->middleware(CheckTokenForAnyScope::using('users:read'));
 
     Route::post('/users-create-test', function (Request $request) {
         return response()->json([
-            'message' => 'El token con el alcance users:create es valido',
+            'message' => 'Token valido => users:create es valido',
             'user' => $request->user(),
         ]);
     })->middleware(CheckToken::using('users:create'));
